@@ -44,7 +44,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="75dp"
-            android:text="-1"
+            android:text="@string/localMinus1"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/LocalText" />
 
@@ -54,7 +54,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="50dp"
             android:layout_marginEnd="16dp"
-            android:text="+1"
+            android:text="@string/LocalPlus1"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/LocalText" />
 
@@ -64,7 +64,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:layout_marginEnd="16dp"
-            android:text="+2"
+            android:text="@string/localPlus2"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/addOneLocalScoreBtn" />
 
@@ -73,7 +73,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginBottom="32dp"
-            android:text="Visitante"
+            android:text="@string/visitante"
             android:textAlignment="center"
             android:textColor="@color/black"
             android:textSize="48sp"
@@ -114,9 +114,10 @@
             android:textColor="@color/text_black"
             android:textSize="60sp"
             app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.499"
-            tools:layout_editor_absoluteX="0dp"
             tools:text="62" />
 
         <ImageButton
@@ -136,7 +137,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginBottom="65dp"
-            android:text="-1"
+            android:text="@string/visitorminus1"
             app:layout_constraintBottom_toTopOf="@+id/VisitanteText"
             app:layout_constraintStart_toStartOf="@+id/VisitanteScoreText" />
 
@@ -146,7 +147,7 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="16dp"
             android:layout_marginBottom="10dp"
-            android:text="+1"
+            android:text="@string/visitorPlus1"
             app:layout_constraintBottom_toTopOf="@+id/addTwoVisitorScoreBtn"
             app:layout_constraintEnd_toEndOf="parent" />
 
@@ -156,7 +157,7 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="16dp"
             android:layout_marginBottom="50dp"
-            android:text="+2"
+            android:text="@string/visitorplus2"
             app:layout_constraintBottom_toTopOf="@+id/VisitanteText"
             app:layout_constraintEnd_toEndOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>

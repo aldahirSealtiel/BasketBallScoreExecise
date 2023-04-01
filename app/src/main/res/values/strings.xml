@@ -1,3 +1,15 @@
 <resources>
     <string name="app_name">BasketBallScore</string>
+    <string name="local_visitante">Local - Visitante</string>
+    <string name="localMinus1">-1</string>
+    <string name="LocalPlus1">+1</string>
+    <string name="localPlus2">+2</string>
+    <string name="visitante">Visitante</string>
+    <string name="visitorminus1">-1</string>
+    <string name="visitorPlus1">+1</string>
+    <string name="visitorplus2">+2</string>
+    <string name="resultado_del_partido">Resultado del partido</string>
+    <string name="empate">Fue un empate 😕</string>
+    <string name="visitanteWon">¡Ganaron los visitantes!</string>
+    <string name="localWon">¡Ganó el equipo local!</string>
 </resources>
