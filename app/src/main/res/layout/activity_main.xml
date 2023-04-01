@@ -96,8 +96,8 @@
 
         <ImageButton
             android:id="@+id/resetScoreBtn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="60dp"
+            android:layout_height="55dp"
             android:layout_marginStart="16dp"
             android:backgroundTint="@color/purple_500"
             android:src="@drawable/ic_restore_black"
@@ -115,12 +115,14 @@
             android:textSize="60sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.499"
+            tools:layout_editor_absoluteX="0dp"
             tools:text="62" />
 
         <ImageButton
             android:id="@+id/detallesBtn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="60dp"
+            android:layout_height="55dp"
             android:layout_marginEnd="16dp"
             android:backgroundTint="@color/purple_500"
             android:src="@drawable/ic_arrow_right_black"
