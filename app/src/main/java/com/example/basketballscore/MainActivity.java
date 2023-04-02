@@ -1,6 +1,8 @@
 package com.example.basketballscore;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProvider;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -20,9 +22,24 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-        mainViewModel = new MainViewModel();
-        binding.LocalScoreText.setText(mainViewModel.getLocalScore().toString());
-        binding.VisitanteScoreText.setText(mainViewModel.getVisitorScore().toString());
+        //se asigna el liveData a la activity
+        mainViewModel = new ViewModelProvider(this).get(MainViewModel.class);
+
+        //se agregan los observables para que se en cada cambio de los valores localScore y
+        //VisitorScore
+        mainViewModel.getLocalScore().observe(this, integer -> {
+            binding.LocalScoreText.setText(mainViewModel.getLocalScore().getValue().toString());
+        });
+        mainViewModel.getVisitorScore().observe(this, integer -> {
+            binding.VisitanteScoreText.setText(mainViewModel.getVisitorScore().getValue().toString());
+        });
+        setListeners();
+
+
+    }
+
+    private void setListeners()
+    {
         binding.substractLocalScoreBtn.setOnClickListener(v -> {
             restarLocalScore();
         });
@@ -47,44 +64,35 @@ public class MainActivity extends AppCompatActivity {
         binding.detallesBtn.setOnClickListener(v->{
             abrirPantallaDetallesPartido();
         });
-
     }
 
     private void abrirPantallaDetallesPartido()
     {
         Intent intent = new Intent(this, ResultadosPartido.class);
-        intent.putExtra(LOCAL_SCORE_KEY, mainViewModel.getLocalScore());
-        intent.putExtra(VISITOR_SCORE_KEY, mainViewModel.getVisitorScore());
+        intent.putExtra(LOCAL_SCORE_KEY, mainViewModel.getLocalScore().getValue());
+        intent.putExtra(VISITOR_SCORE_KEY, mainViewModel.getVisitorScore().getValue());
         startActivity(intent);
     }
     private void resetScores()
     {
         mainViewModel.resetScores();
-        binding.VisitanteScoreText.setText(mainViewModel.getVisitorScore().toString());
-        binding.LocalScoreText.setText(mainViewModel.getLocalScore().toString());
     }
     private void restarVisitorScore()
     {
         mainViewModel.restarVisitorScore();
-        binding.VisitanteScoreText.setText(mainViewModel.getLocalScore().toString());
     }
 
     private void sumarVisitorScore(int valorASumar)
     {
         mainViewModel.sumarVisitorScore(valorASumar);
-        binding.VisitanteScoreText.setText(mainViewModel.getVisitorScore().toString());
     }
 
     private void sumarLocalScore(int valorASumar)
     {
         mainViewModel.sumarLocalScore(valorASumar);
-        binding.LocalScoreText.setText(mainViewModel.getLocalScore().toString());
-
     }
     private void restarLocalScore()
     {
         mainViewModel.restarLocalScore();
-        binding.LocalScoreText.setText(mainViewModel.getLocalScore().toString());
-
     }
 }
